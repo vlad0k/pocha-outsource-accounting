@@ -1,0 +1,19 @@
+{
+  "name": "pocha-outsource-accounting",
+  "version": "1.0.0",
+  "description": "Web app for accounting the tobacco at outsources",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlad0k/pocha-outsource-accounting.git"
+  },
+  "author": "vlad0k",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vlad0k/pocha-outsource-accounting/issues"
+  },
+  "homepage": "https://github.com/vlad0k/pocha-outsource-accounting#readme"
+}
