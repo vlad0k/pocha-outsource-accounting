@@ -1,5 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  form(action='enter')
+    label
+      h3 Кальянщик
+      select
+        each val in masters
+          option(value=val)=val
+        else
+          option(value='err') err
+    label
+      h3 Аутсорс
+      select(name='outsource')
+        each val in outsources
+          option(value=val)=val
+        else
+          option(value='err') err
+    label
+      h3 Дата
+      input(type='date' value=nowDate name='date')
+    p
+      input(type='submit' value='Отправить')
