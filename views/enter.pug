@@ -23,12 +23,12 @@ block content
   button + Add
   form(class='addLine' action='/addline')
     p(style='display: none')
-      input(disabled name='master' value=master)
-      input(disabled name='outsource' value=outsource)
-      input(disabled name='date' value=date)
+      input(name='master' value=master)
+      input(name='outsource' value=outsource)
+      input(name='date' value=date)
     label
       h3 Кальян:
-      select(name='hookah')
+      select(name='product')
         option(value='light') Light
         option(value='premium') Premium
         option(value='strong') Strong
@@ -41,7 +41,8 @@ block content
       label
         input(type='checkbox' name='admin')
         span Aдмин
-    textarea(name='comment')
+    p
+      input(name='comment' placeholder='Комментарий')
     p
       span Колличество
       input(type='number' name='number' value=1)

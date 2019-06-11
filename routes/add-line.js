@@ -14,12 +14,40 @@ SELECT p.name product, r.personal, r.admin, r.comment
     r.product_id=p.id
 `
 
+var insertDataSQL = `
+INSERT INTO hookah_report(product_id, date, personal, admin, comment, outsource_id)
+  VALUES
+  (
+    (SELECT id FROM product WHERE name = $product),
+    DATE($date),
+    $personal,
+    $admin,
+    $comment,
+    (SELECT id FROM outsources WHERE name = $outsource)
+  )
+`
 
 router.get('/', function(req, res, next) {
   var query = req.query;
+
   var sqlite3 = require('sqlite3').verbose();
 
   var db = new sqlite3.Database('./db/sales.db');
+
+  db.run(
+    insertDataSQL,
+    {
+      $product: query.product,
+      $date: query.date,
+      $personal: query.personal ? true : false,
+      $admin: query.admin ? true : false,
+      $comment: query.comment,
+      $outsource: query.outsource,
+    },
+    () => {
+      console.log('Data has been imported');
+    }
+  );
 
   db.all(getTableSQL,
     {
@@ -45,10 +73,9 @@ router.get('/', function(req, res, next) {
         table: rows,
         cash: cash
       });
-    }
-  )
+    });
+  });
 
-  db.close(() => console.log('DB is closed'));
-});
+
 
 module.exports = router;
