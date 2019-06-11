@@ -4,3 +4,19 @@ block content
   h1=outsource
   p
     span=master+'\t'+date
+
+  table
+    tr
+      td №
+      td Кальян
+      td Персонал
+      td Админ
+      td Комментарий
+    each elem in table
+      tr
+        td=(table.indexOf(elem) + 1)
+        td=elem.product
+        td=(elem.personal ? '+' : '')
+        td=(elem.admin ? '+' : '')
+        td=elem.comment
+  p='Касса: '+cash+' грн'
