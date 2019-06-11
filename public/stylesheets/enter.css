@@ -1,0 +1,17 @@
+body {
+  position: relative;
+}
+
+.addLine {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  left: 50px;
+  top: 58px;
+}
+
+.addLine_visible {
+  display: block;
+}
