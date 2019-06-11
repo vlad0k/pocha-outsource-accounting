@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
           }[i.product]
         }
       }
-
+      
       res.render('enter', {
         master: query.master,
         outsource: query.outsource,

@@ -73,6 +73,7 @@ router.get('/', function(req, res, next) {
         table: rows,
         cash: cash
       });
+
     });
   });
 
