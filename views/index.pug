@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  form(action='enter')
+  form(action='/enter')
     label
       h3 Кальянщик
-      select
+      select(name='master')
         each val in masters
           option(value=val)=val
         else
@@ -19,5 +19,6 @@ block content
     label
       h3 Дата
       input(type='date' value=nowDate name='date')
+
     p
-      input(type='submit' value='Отправить')
+      input(type='submit' value='Войти')
